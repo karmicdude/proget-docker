@@ -19,6 +19,11 @@ You can set the required variables in `docker-compose.yaml`, for example, the ve
 ```bash
 # change the environment variables before
 docker-compose up -d proget-db
-docker-compose exec proget-db /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P '<password>' -Q 'CREATE DATABASE [YOUR_DB_NAME] COLLATE SQL_Latin1_General_CP1_CI_AS'
+docker-compose exec proget-db \
+  /opt/mssql-tools/bin/sqlcmd \
+    -S localhost \
+    -U SA \
+    -P '<password>' \
+    -Q 'CREATE DATABASE [YOUR_DB_NAME] COLLATE SQL_Latin1_General_CP1_CI_AS'
 docker-compose up -d proget proget-nginx
 ```
