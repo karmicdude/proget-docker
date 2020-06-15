@@ -14,6 +14,8 @@ You can set the required variables in `docker-compose.yaml`, for example, the ve
 `PROGET_DB_USER`  
 `PROGET_DB_PASS`  
 
+Each time when you run `proget` container, the configuration file `ProGet.config` is recreated. More in `proget-docker/build/proget/entrypoint.sh`  
+
 ## Installation  
 
 ```bash
@@ -25,5 +27,6 @@ docker-compose exec proget-db \
     -U SA \
     -P '<password>' \
     -Q 'CREATE DATABASE [YOUR_DB_NAME] COLLATE SQL_Latin1_General_CP1_CI_AS'
+docker-compose build proget
 docker-compose up -d proget proget-nginx
 ```
